@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-deployement
+  name: nginx
   labels:
     app: nginx
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: nginx
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: my_nginx
+        image: nginx
         imagePullPolicy: Never
         ports:
         - containerPort: 80
@@ -26,17 +26,18 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: nginx
+  annotations: 
+    metallb.universe.tf/allow-shared-ip: shared
 spec:
-  type: NodePort
   selector:
-    run: my-nginx
+    app: nginx
   ports:
-    - port: 80
+    - name: http
+      port: 80
       targetPort: 80
       protocol: TCP
-      name: http
-    - port: 443
-      protocol: TCP
-      name: https
-
+    # - port: 443
+    #   protocol: TCP
+    #   name: https
+  type: LoadBalancer
