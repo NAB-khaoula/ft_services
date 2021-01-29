@@ -1,6 +1,7 @@
 rc-status
-rc-service nginx restart
-rc-service php-fpm7 restart
-rc-update add nginx default
-rc-update add php-fpm7 default
-/bin/sh
+rc-service nginx start
+rc-service php-fpm7 start
+while true;
+do
+    sleep 2
+done
