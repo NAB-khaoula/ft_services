@@ -1,4 +1,4 @@
 CREATE DATABASE testdb;
-CREATE USER testuser@localhost IDENTIFIED BY "lol";
-GRANT ALL ON testdb.* TO testuser@localhost;
+CREATE USER 'admin'@'%' IDENTIFIED BY "admin@";
+GRANT ALL ON *.* TO 'admin'@'%';
 FLUSH PRIVILEGES;

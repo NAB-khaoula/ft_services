@@ -37,7 +37,12 @@ spec:
       port: 80
       targetPort: 80
       protocol: TCP
-    # - port: 443
-    #   protocol: TCP
-    #   name: https
+    - name: https
+      port: 443
+      protocol: TCP
+      targetPort: 443
+    - name: ssh
+      port: 22
+      protocol: TCP
+      targetPort: 22
   type: LoadBalancer

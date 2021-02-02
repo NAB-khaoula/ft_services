@@ -1,4 +1,6 @@
 rc-status
-rc-service vsftpd restart
-rc-update add vsftpd default
-/bin/sh
+rc-service vsftpd start
+while true;
+do
+    sleep 2
+done

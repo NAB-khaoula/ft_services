@@ -1,2 +1,5 @@
 ./usr/sbin/grafana-server -homepath ./usr/share/grafana
-/bin/sh
+while true;
+do
+    sleep 2
+done

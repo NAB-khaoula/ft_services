@@ -6,8 +6,8 @@ RUN adduser -D -g 'www' www
 RUN mkdir /www
 RUN chown -R www:www /var/lib/nginx
 RUN chown -R www:www /www
-RUN mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
-COPY ./nginx.conf /etc/nginx/nginx.conf
+
+COPY ./srcs/nginx.conf /etc/nginx/nginx.conf
 RUN mkdir /run/openrc
 RUN touch /run/openrc/softlevel
 RUN rc-status
@@ -17,7 +17,8 @@ RUN tar -xzvf latest.tar.gz
 RUN rm latest.tar.gz
 RUN mv wordpress /www
 RUN chmod -R 777 /www/wordpress
-COPY ./script.sh /script.sh
+COPY ./srcs/script.sh /script.sh
+COPY ./srcs/wp-config.php /www/wordpress/wp-config.php
 RUN chmod +x /script.sh
 EXPOSE 5050
 ENTRYPOINT sh script.sh
