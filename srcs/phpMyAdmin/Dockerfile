@@ -1,11 +1,10 @@
 FROM alpine:3.12.3
 
 
-VOLUME [ "/sys/fs/cgroup" ]
-
-
 RUN apk update
-RUN apk add nginx openrc --no-cache
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/edge/community/" >> /etc/apk/repositories
+
+RUN apk add nginx openrc telegraf
 
 
 RUN adduser -D -g 'www' www
@@ -16,8 +15,7 @@ RUN chown -R www:www /www
 
 COPY ./srcs/nginx.conf /etc/nginx/nginx.conf
 
-RUN mkdir /run/openrc
-RUN touch /run/openrc/softlevel
+RUN rc-status && touch /run/openrc/softlevel
 
 RUN rc-status
 
@@ -37,6 +35,7 @@ RUN chmod -R 777 /www/phpmyadmin
 RUN chmod 777 /www/phpmyadmin/config.inc.php
 
 COPY ./srcs/script.sh /script.sh
+COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
 
 EXPOSE 5000
 ENTRYPOINT sh script.sh 
