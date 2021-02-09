@@ -6,7 +6,6 @@ RUN apk add openrc influxdb telegraf
 RUN rc-status && touch /run/openrc/softlevel
 
 COPY ./srcs/script.sh /script.sh
-# COPY ./srcs/influxdb.conf /etc/influx.conf
-COPY ./srcs/telegraf.conf /etc/telegraf.conf
+COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
 
-ENTRYPOINT  sh script.sh
+CMD [ "sh", "script.sh" ]

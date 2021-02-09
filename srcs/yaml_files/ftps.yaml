@@ -20,6 +20,7 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 21
+        - containerPort: 30021
 ---
 apiVersion: v1
 kind: Service
@@ -31,8 +32,14 @@ spec:
   selector:
     app: ftps
   ports:
-    - name: http
+    - name: ftps
       port: 21
       targetPort: 21
+      protocol: TCP
+    - name: passmin
+      port: 30020
+      protocol: TCP
+    - name: passmax
+      port: 30021
       protocol: TCP
   type: LoadBalancer

@@ -12,5 +12,6 @@ RUN rm -f grafana-enterprise-7.3.7.linux-amd64.tar.gz
 
 COPY ./srcs/script.sh /script.sh
 COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
+COPY ./srcs/grafana.db  /grafana-7.3.7/data/grafana.db
 
 ENTRYPOINT  sh script.sh

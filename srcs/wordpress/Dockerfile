@@ -25,4 +25,4 @@ COPY ./srcs/wp-config.php /www/wordpress/wp-config.php
 COPY ./srcs/telegraf.conf /etc/telegraf/telegraf.conf
 RUN chmod +x /script.sh
 EXPOSE 5050
-ENTRYPOINT sh script.sh
+CMD [ "sh", "script.sh" ]

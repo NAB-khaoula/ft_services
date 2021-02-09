@@ -1,5 +1,6 @@
+
 #export variables of minikube env to this terminal
-# eval $(minikube docker-env)
+eval $(minikube docker-env)
 
 #to install metallb
 kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/v0.9.5/manifests/namespace.yaml
