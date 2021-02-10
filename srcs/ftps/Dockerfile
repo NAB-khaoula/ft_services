@@ -1,4 +1,5 @@
 FROM alpine:3.12.3
+
 EXPOSE 21
 
 RUN apk update
