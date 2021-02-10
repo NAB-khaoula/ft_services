@@ -12,8 +12,7 @@ do
 				echo "grafana is not running !"
 				exit 1
 		fi
-		if [ $var_telegraf -eq 1 ]
-		then
+		if ! pgrep telegraf; then
 				echo "telegraf is not running !"
 				exit 1
 		fi

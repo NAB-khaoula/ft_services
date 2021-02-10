@@ -38,4 +38,4 @@ kubectl apply -f ./srcs/yaml_files/ftps.yaml
 kubectl apply -f ./srcs/yaml_files/influxdb.yaml
 
 #minikube dashboard check
-minikube dashboard
+# minikube dashboard

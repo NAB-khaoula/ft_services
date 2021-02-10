@@ -7,9 +7,7 @@ sleep 2
 
 while true;
 do
-        var_influxdb=`rc-service influxdb status | grep -c 'stopped'`
-        if [ $var_influxdb -eq 1 ]
-        then
+        if ! pgrep influx; then
                 echo "service influxdb stopped ..."
                 exit 1
         fi
