@@ -3,6 +3,7 @@
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [Resources](#resources)
+* [The set up graph](#set-up)
 
 ## General info
 This is a 42-networking System Administration and Networking project. ft_services consists of setting up an infrastructure of different services using 
@@ -20,8 +21,7 @@ Project is created with:
 
 ```
 $ cd ../name_of_folder
-$ minikube start 
-$ eval $(minikube docker-env)
+$ minikube start
 $ ./setup.sh
 $ kubectl get svc /*copy the external ip, to access the services IP:PORT*/
 ```
@@ -51,3 +51,6 @@ $ kubectl get svc /*copy the external ip, to access the services IP:PORT*/
  <li><a href="https://www.jscape.com/blog/bid/87783/forward-proxy-vs-reverse-proxy#:~:text=While%20a%20forward%20proxy%20proxies,what%20the%20figure%20below%20illustrates.">Proxy vs. Reverse Proxy (Explained by Example)</a></li>
  <li><a href="https://kinsta.com/knowledgebase/307-redirect/">Understanding the HTTP 307 Temporary Redirect Status Code in Depth</a></li>
 </ul>
+
+## The set up graph:
+<img src="https://github.com/NAB-khaoula/ft_service/blob/main/srcs/set_up" />
